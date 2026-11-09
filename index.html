@@ -23,92 +23,97 @@
             </div>
         </nav>
 
-            <div class="booking-card">
-                <h3>New Appointment</h3>
-                <form id="booking-form">
-                    <div class="form-group">
-                        <label for="client-name">Client Name</label>
-                        <input type="text" id="client-name" required placeholder="e.g. John Doe">
-                    </div>
+        <!-- SCREEN 1: Booking & Management Dashboard -->
+        <section id="screen-1" class="screen-view active">
+            <div class="screen-1-layout">
+                <!-- Sidebar Form -->
+                <div class="booking-card">
+                    <h3>New Appointment</h3>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="client-name">Client Name</label>
+                            <input type="text" id="client-name" required placeholder="e.g. John Doe">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="select-barber">Select Barber</label>
-                        <select id="select-barber" required>
-                            <option value="">Choose a barber...</option>
-                            <option value="Bibo">Bibo</option>                      
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="select-barber">Select Barber</label>
+                            <select id="select-barber" required>
+                                <option value="">Choose a barber...</option>
+                                <option value="Marcus">Marcus</option>
+                                <option value="Devon">Devon</option>
+                                <option value="Leo">Leo</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="select-service">Service & Duration</label>
-                        <select id="select-service" required>
-                            <option value="">Choose service...</option>
-                            <option value="Fade (30 mins)">Skin Fade - 30m</option>
-                            <option value="Beard Trim (15 mins)">Beard Trim - 15m</option>
-                            <option value="Full Cut (45 mins)">Haircut & Beard - 45m</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="select-service">Service & Price</label>
+                            <select id="select-service" required>
+                                <option value="">Choose service...</option>
+                                <option value="Skin Fade ($30) [30 mins]">Skin Fade ($30) - 30m</option>
+                                <option value="Beard Trim ($15) [15 mins]">Beard Trim ($15) - 15m</option>
+                                <option value="Haircut & Beard ($45) [45 mins]">Haircut & Beard ($45) - 45m</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="appointment-time">Time Slot</label>
-                        <input type="time" id="appointment-time" min="09:00" max="18:00" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="appointment-date">Date</label>
+                            <input type="date" id="appointment-date" required>
+                        </div>
 
-                    <button type="submit" class="btn-primary">Book Appointment</button>
-                </form>
+                        <div class="form-group">
+                            <label for="appointment-time">Time Slot</label>
+                            <input type="time" id="appointment-time" min="09:00" max="18:00" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Book Appointment</button>
+                    </form>
+                </div>
+
+                <!-- Upcoming Appointments List Panel -->
+                <div class="appointments-list-panel">
+                    <h3>Active Bookings Overview</h3>
+                    <div id="active-bookings-list" class="bookings-list">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
             </div>
-        </aside>
+        </section>
 
-        <!-- Main Calendar Grid Area -->
-        <main class="calendar-main">
+        <!-- SCREEN 2: Weekly Calendar View (Monday - Sunday) -->
+        <section id="screen-2" class="screen-view">
             <header class="calendar-header">
                 <div>
-                    <h1 id="current-date-display">Today's Schedule</h1>
-                    <p>Manage daily barber bookings and availability</p>
+                    <h1 id="week-range-display">Weekly Schedule</h1>
+                    <p>Monday to Sunday Barber Timetable</p>
                 </div>
                 <div class="date-controls">
-                    <button class="btn-secondary" id="prev-day">← Prev</button>
-                    <button class="btn-secondary" id="today-btn">Today</button>
-                    <button class="btn-secondary" id="next-day">Next →</button>
+                    <button class="btn-secondary" id="prev-week">← Prev Week</button>
+                    <button class="btn-secondary" id="this-week-btn">This Week</button>
+                    <button class="btn-secondary" id="next-week">Next Week →</button>
                 </div>
             </header>
 
-            <!-- Barber Column Grid -->
-            <div class="schedule-grid-container">
+            <div class="weekly-grid-container">
                 <div class="time-column">
                     <div class="time-header">Time</div>
                     <div class="time-slot">09:00 AM</div>
-                    <div class="time-slot">09:30 AM</div>
                     <div class="time-slot">10:00 AM</div>
-                    <div class="time-slot">10:30 AM</div>
                     <div class="time-slot">11:00 AM</div>
-                    <div class="time-slot">11:30 AM</div>
                     <div class="time-slot">12:00 PM</div>
-                    <div class="time-slot">12:30 PM</div>            
                     <div class="time-slot">01:00 PM</div>
-                    <div class="time-slot">01:30 PM</div>
                     <div class="time-slot">02:00 PM</div>
-                    <div class="time-slot">02:30 PM</div>
                     <div class="time-slot">03:00 PM</div>
-                    <div class="time-slot">03:30 PM</div>
                     <div class="time-slot">04:00 PM</div>
-
                     <div class="time-slot">05:00 PM</div>
                 </div>
 
-                <!-- Barber Columns Will Render Here -->
-                <div class="barbers-container" id="barbers-grid">
-                    <!-- Bibo Column -->
-                    <div class="barber-column" data-barber="Bibo">
-                        <div class="barber-header">
-                            <h3>Bibo</h3>
-                            <span>Senior Barber</span>
-                        </div>
-                        <div class="slots-wrapper" data-barber="Bibo">
-                            <!-- Dynamic bookings injected via JS -->
-                        </div>
-                    </div>
-                    
+                <!-- 7 Columns: Monday through Sunday -->
+                <div class="days-container" id="weekly-days-grid">
+                    <!-- Injected via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="app.js"></script>
 </body>
