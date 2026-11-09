@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Shop Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar for Booking & Controls -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>✂️ FreshCut</h2>
+                <p>Shop Schedule Manager</p>
+            </div>
+
+            <div class="booking-card">
+                <h3>New Appointment</h3>
+                <form id="booking-form">
+                    <div class="form-group">
+                        <label for="client-name">Client Name</label>
+                        <input type="text" id="client-name" required placeholder="e.g. John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-barber">Select Barber</label>
+                        <select id="select-barber" required>
+                            <option value="">Choose a barber...</option>
+                            <option value="Marcus">Marcus</option>
+                            <option value="Devon">Devon</option>
+                            <option value="Leo">Leo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-service">Service & Duration</label>
+                        <select id="select-service" required>
+                            <option value="">Choose service...</option>
+                            <option value="Fade (30 mins)">Skin Fade - 30m</option>
+                            <option value="Beard Trim (15 mins)">Beard Trim - 15m</option>
+                            <option value="Full Cut (45 mins)">Haircut & Beard - 45m</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointment-time">Time Slot</label>
+                        <input type="time" id="appointment-time" min="09:00" max="18:00" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Book Appointment</button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Calendar Grid Area -->
+        <main class="calendar-main">
+            <header class="calendar-header">
+                <div>
+                    <h1 id="current-date-display">Today's Schedule</h1>
+                    <p>Manage daily barber bookings and availability</p>
+                </div>
+                <div class="date-controls">
+                    <button class="btn-secondary" id="prev-day">← Prev</button>
+                    <button class="btn-secondary" id="today-btn">Today</button>
+                    <button class="btn-secondary" id="next-day">Next →</button>
+                </div>
+            </header>
+
+            <!-- Barber Column Grid -->
+            <div class="schedule-grid-container">
+                <div class="time-column">
+                    <div class="time-header">Time</div>
+                    <div class="time-slot">09:00 AM</div>
+                    <div class="time-slot">10:00 AM</div>
+                    <div class="time-slot">11:00 AM</div>
+                    <div class="time-slot">12:00 PM</div>
+                    <div class="time-slot">01:00 PM</div>
+                    <div class="time-slot">02:00 PM</div>
+                    <div class="time-slot">03:00 PM</div>
+                    <div class="time-slot">04:00 PM</div>
+                    <div class="time-slot">05:00 PM</div>
+                </div>
+
+                <!-- Barber Columns Will Render Here -->
+                <div class="barbers-container" id="barbers-grid">
+                    <!-- Marcus Column -->
+                    <div class="barber-column" data-barber="Marcus">
+                        <div class="barber-header">
+                            <h3>Marcus</h3>
+                            <span>Senior Barber</span>
+                        </div>
+                        <div class="slots-wrapper" data-barber="Marcus">
+                            <!-- Dynamic bookings injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Devon Column -->
+                    <div class="barber-column" data-barber="Devon">
+                        <div class="barber-header">
+                            <h3>Devon</h3>
+                            <span>Stylist</span>
+                        </div>
+                        <div class="slots-wrapper" data-barber="Devon"></div>
+                    </div>
+
+                    <!-- Leo Column -->
+                    <div class="barber-column" data-barber="Leo">
+                        <div class="barber-header">
+                            <h3>Leo</h3>
+                            <span>Master Barber</span>
+                        </div>
+                        <div class="slots-wrapper" data-barber="Leo"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
