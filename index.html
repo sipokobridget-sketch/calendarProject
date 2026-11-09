@@ -14,7 +14,7 @@
         <!-- Sidebar for Booking & Controls -->
         <aside class="sidebar">
             <div class="brand">
-                <h2>✂️ FreshCut</h2>
+                <h2>✂️ BIBO`s barber shop</h2>
                 <p>Shop Schedule Manager</p>
             </div>
 
@@ -30,9 +30,7 @@
                         <label for="select-barber">Select Barber</label>
                         <select id="select-barber" required>
                             <option value="">Choose a barber...</option>
-                            <option value="Marcus">Marcus</option>
-                            <option value="Devon">Devon</option>
-                            <option value="Leo">Leo</option>
+                            <option value="Bibo">Bibo</option>                      
                         </select>
                     </div>
 
@@ -75,50 +73,37 @@
                 <div class="time-column">
                     <div class="time-header">Time</div>
                     <div class="time-slot">09:00 AM</div>
+                    <div class="time-slot">09:30 AM</div>
                     <div class="time-slot">10:00 AM</div>
+                    <div class="time-slot">10:30 AM</div>
                     <div class="time-slot">11:00 AM</div>
+                    <div class="time-slot">11:30 AM</div>
                     <div class="time-slot">12:00 PM</div>
+                    <div class="time-slot">12:30 PM</div>            
                     <div class="time-slot">01:00 PM</div>
+                    <div class="time-slot">01:30 PM</div>
                     <div class="time-slot">02:00 PM</div>
+                    <div class="time-slot">02:30 PM</div>
                     <div class="time-slot">03:00 PM</div>
+                    <div class="time-slot">03:30 PM</div>
                     <div class="time-slot">04:00 PM</div>
+
                     <div class="time-slot">05:00 PM</div>
                 </div>
 
                 <!-- Barber Columns Will Render Here -->
                 <div class="barbers-container" id="barbers-grid">
-                    <!-- Marcus Column -->
-                    <div class="barber-column" data-barber="Marcus">
+                    <!-- Bibo Column -->
+                    <div class="barber-column" data-barber="Bibo">
                         <div class="barber-header">
-                            <h3>Marcus</h3>
+                            <h3>Bibo</h3>
                             <span>Senior Barber</span>
                         </div>
-                        <div class="slots-wrapper" data-barber="Marcus">
+                        <div class="slots-wrapper" data-barber="Bibo">
                             <!-- Dynamic bookings injected via JS -->
                         </div>
                     </div>
-
-                    <!-- Devon Column -->
-                    <div class="barber-column" data-barber="Devon">
-                        <div class="barber-header">
-                            <h3>Devon</h3>
-                            <span>Stylist</span>
-                        </div>
-                        <div class="slots-wrapper" data-barber="Devon"></div>
-                    </div>
-
-                    <!-- Leo Column -->
-                    <div class="barber-column" data-barber="Leo">
-                        <div class="barber-header">
-                            <h3>Leo</h3>
-                            <span>Master Barber</span>
-                        </div>
-                        <div class="slots-wrapper" data-barber="Leo"></div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+                    
 
     <script src="app.js"></script>
 </body>
